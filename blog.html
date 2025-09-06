@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Journal - Sleek and Swanky</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&h=1080&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .blog-section {
+            padding: 80px 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-date {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-title {
+            font-family: var(--serif-font);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            line-height: 1.3;
+        }
+        
+        .blog-excerpt {
+            color: var(--gray-medium);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            gap: 1rem;
+        }
+        
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background: var(--gray-light);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-tag {
+            background: var(--gold);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-title {
+            font-family: var(--serif-font);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Sleek & Swanky</a></h1>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#new-arrivals" class="nav-link">New Arrivals</a>
+                <a href="#" class="nav-link">Men</a>
+                <a href="#" class="nav-link">Women</a>
+                <a href="#" class="nav-link">Accessories</a>
+                <a href="index.html#sale" class="nav-link sale-link">Sale</a>
+                <a href="blog.html" class="nav-link">Style Journal</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button class="nav-icon">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="nav-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="nav-icon">
+                    <i class="far fa-user"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Style Journal</h1>
+            <p class="hero-tagline">Fashion insights, trends, and timeless style tips</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Featured Post -->
+                <article class="featured-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=400&fit=crop" alt="Fall Fashion Trends">
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-tag">Featured</div>
+                        <h2 class="featured-title">Fall Fashion Trends 2024</h2>
+                        <div class="blog-date">December 15, 2024</div>
+                        <p class="blog-excerpt">Discover the must-have pieces for this fall season. From luxurious textures to timeless silhouettes, explore the trends that will define your autumn wardrobe with elegance and sophistication.</p>
+                        <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Regular Blog Posts -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=300&fit=crop" alt="Capsule Wardrobe">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">December 12, 2024</div>
+                        <h3 class="blog-title">Building a Timeless Capsule Wardrobe</h3>
+                        <p class="blog-excerpt">Learn how to create a versatile wardrobe with essential pieces that never go out of style. Quality over quantity is the key to sustainable fashion.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=300&fit=crop" alt="Jewelry Styling">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">December 10, 2024</div>
+                        <h3 class="blog-title">The Art of Layering Jewelry</h3>
+                        <p class="blog-excerpt">Master the elegant art of jewelry layering with our expert tips. Create sophisticated looks that complement your personal style.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop" alt="Color Coordination">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">December 8, 2024</div>
+                        <h3 class="blog-title">Mastering Color Coordination</h3>
+                        <p class="blog-excerpt">Discover the secrets of color theory in fashion. Learn how to create harmonious outfits that reflect your sophisticated taste.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" alt="Men's Style Guide">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">December 5, 2024</div>
+                        <h3 class="blog-title">The Modern Gentleman's Style Guide</h3>
+                        <p class="blog-excerpt">Elevate your menswear game with timeless pieces and contemporary touches. A guide to sophisticated masculine style.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=300&fit=crop" alt="Sustainable Fashion">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">December 3, 2024</div>
+                        <h3 class="blog-title">Sustainable Fashion: A Luxury Perspective</h3>
+                        <p class="blog-excerpt">Explore how sustainability and luxury fashion intersect. Making conscious choices without compromising on style and quality.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=300&fit=crop" alt="Evening Wear">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">December 1, 2024</div>
+                        <h3 class="blog-title">Elegant Evening Wear Essentials</h3>
+                        <p class="blog-excerpt">From cocktail parties to formal galas, discover the key pieces that will ensure you're always appropriately dressed for any evening occasion.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sleek & Swanky</h3>
+                    <p>Where elegance meets style. Discover timeless fashion pieces that define sophistication.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="index.html#sale">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers and style updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sleek & Swanky. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
